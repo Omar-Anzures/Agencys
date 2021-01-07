@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+<form method="GET"> {% csrf_token %}
+
+    <div class="field has-addons is-pulled-right">
+        <div class="control">
+          <input class="input" type="text" id="kword" name="kword" placeholder="Ejemplo: Nissan ">
+        </div>
+        <div class="control">
+          <button type="submit" class="button is-link">Buscar</button>
+        </div>
+   </div>
+ 
+</form>
+
+<br><br><br>
+<h1 class="title is-3 has-text-lefth" >Todos las marcas disponibles:</h1>
+<br><br>
+<div class="columns is-multiline">
+
+  {% for lista in car%}
+  <div class="column is-one-third">
+     <div class="card">
+      <span class="tag is-info">{{lista.nombres}}</span><br>
+         <div class="card-image">
+           <figure class="image is-4by3">
+         <img src=" {{lista.nombres.imagen.url}}" alt="Placeholder image">
+           </figure>
+         </div>
+        
+         <div class="card-content">
+           <div class="content">
+
+            <div class="field is-grouped is-grouped-multiline">
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-primary">Marca</span>
+                  <span class="tag is-primary is-light"> {{lista.nombres.marca}}</span>
+                </div>
+              </div>
+            
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-primary">Modelo</span>
+                  <span class="tag is-primary is-light">{{lista.nombres.modelo}}</span>
+                </div>
+              </div>
+            
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-primary">Estado</span>
+                  <span class="tag is-primary is-light">{{lista.nombres.get_estado_display}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="field is-grouped is-grouped-multiline">
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-primary">Precio</span>
+                  <span class="tag is-primary is-light">${{lista.nombres.precio}}</span>
+                </div>
+              </div>
+            
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-primary">Cilindros</span>
+                  <span class="tag is-primary is-light">{{lista.cilindros}}</span>
+                </div>
+              </div>
+            
+              <div class="control">
+                <div class="tags has-addons">
+                  <span class="tag is-primary">Puertas</span>
+                  <span class="tag is-primary is-light">{{lista.puertas}}</span>
+                </div>
+              </div>
+            </div>
+             
+            </div>
+            <a href="{% url 'car_app:description' lista.nombres.id %}"><span class="tag is-link is-light is-pulled-right">Ver mas...</span></a> <br>
+           </div>    
+     </div>
+    </div>
+ 
+ {% endfor %} 
+
+</div>
+
+{% if is_paginated %}
+<nav class="pagination is-centered mb-6" role="navigation" aria-label="pagination">
+  {% if page_obj.has_previous %}
+  <a class="pagination-previous" href="?page={{page_obj.previous_page_number}}">Atras</a>
+  {% endif %}
+  {% if page_obj.has_next %}
+  <a class="pagination-next" href="?page={{page_obj.next_page_number}}" >Siguiente</a>
+  {% endif %}
+ 
+   <ul class="pagination-list">
+ 
+    {% for pagina in paginator.page_range %}
+    {% ifequal pagina page_obj.number  %}
+    <li><a class="pagination-link is-current">{{pagina}}</a></li>
+    {% else %}
+    <li><a class="pagination-link" href="?page={{pagina}}">{{pagina}}</a></li>
+    {% endifequal %}
+    {% endfor %}
+
+  </ul>
+</nav>
+{% endif %}
+</div>  
+
+{% endblock content %}

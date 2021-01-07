@@ -1,0 +1,31 @@
+{% extends 'panel/dash_base.html' %}
+{% load static %}
+
+
+{% block dash %}
+
+
+<div class="container-fluid" style="width: 720px;margin-top: 130px;">
+  <h3>¿Seguro que quiere cambiar la contraseña de {{ user.get_full_name }} ?</h3>
+    <form class="row g-3">{% csrf_token %}
+
+      
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Contraseña actual</label>
+           {{form.password1}}
+        </div>
+        <div class="col-md-6 ">
+            <label for="inputPassword4" class="form-label">Contraseña nueva</label>
+            {{form.password2}}
+          </div>
+       
+       
+        <div class="mx-auto col-12 mt-4">
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+      </form>
+
+</div>
+
+
+{% endblock dash %}

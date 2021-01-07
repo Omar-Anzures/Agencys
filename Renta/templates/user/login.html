@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+  
+
+<form method="POST">{% csrf_token %}
+    
+<div class="columns is-vcentered">
+    <div class="login column is-4 ">
+      <section class="section">
+        <div class="has-text-centered">
+            <img class="login-logo" src="{% static 'img/logo_r_resumme.png' %}">
+        </div>
+
+        <div class="field">
+          <label class="label">Usuario</label>
+          <div class="control has-icons-right">
+           <!--<input class="input" type="text">--> 
+           {{form.username}}
+            <span class="icon is-small is-right">
+              <i class="fa fa-user"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Contraseña</label>
+          <div class="control has-icons-right">
+              {{form.password}}
+            <!-- <input class="input" type="password"> -->
+            <span class="icon is-small is-right">
+              <i class="fa fa-key"></i>
+            </span>
+          </div>
+        </div>
+        <div class="has-text-centered">
+         <button class="button is-vcentered is-primary is-outlined" type="submit" > Iniciar</button>
+        </div>
+        <div class="has-text-centered">
+          <a href="{% url 'users_app:registrar' %} "> No tienes una cuenta? Registrate ahora!</a>
+        </div>
+      </section>
+    </div>
+    <div id="particles-js" class="interactive-bg column is-8">
+    </div>
+  </div>
+</form>
+{% endblock content %}

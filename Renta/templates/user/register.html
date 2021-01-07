@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="container">
+<div class="columns is-vcentered">
+    <div class="login column is-4 ">
+
+    <form method="post">{% csrf_token %}
+      <section class="section">
+        <div class="has-text-centered">
+            <img class="login-logo" src="{% static 'img/logo_r_resumme.png' %}">
+        </div>
+     
+        <div class="field">
+          <label class="label">Usuario</label>
+          <div class="control has-icons-right">
+           <!--  <input class="input" type="text">--> 
+           {{form.username}}
+            <span class="icon is-small is-right">
+              <i class="fa fa-user"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Correo</label>
+          <div class="control has-icons-right">
+           <!--  <input class="input" type="text">  --> 
+           {{form.email}}
+            <span class="icon is-small is-right">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+
+
+        <div class="field">
+          <label class="label">Nombres</label>
+          <div class="control has-icons-right">
+           <!--  <input class="input" type="text">--> 
+           {{form.nombres}}
+            <span class="icon is-small is-right">
+              <i class="fas fa-user-edit"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Apellidos</label>
+          <div class="control has-icons-right">
+           <!--  <input class="input" type="text">--> 
+           {{form.apellidos}}
+            <span class="icon is-small is-right">
+              <i class="fas fa-user-edit"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Contraseña</label>
+          <div class="control has-icons-right">
+           <!--  <input class="input" type="password"> --> 
+           {{form.password1}}
+            <span class="icon is-small is-right">
+              <i class="fa fa-key"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Repetir contraseña</label>
+          <div class="control has-icons-right">
+           <!--  <input class="input" type="password"> --> 
+           {{form.password2}}
+            <span class="icon is-small is-right">
+              <i class="fa fa-key"></i>
+            </span>
+          </div>
+        </div>
+
+
+
+        <div class="has-text-centered">
+          <button class="button is-vcentered is-primary is-outlined" type="submit" > Registrar</button>
+         </div>
+        <div class="has-text-centered">
+          <a href="{% url 'users_app:login' %}"> Tienes una cuenta? Inicia sesion ahora!</a>
+        </div>
+      </section>
+    </form>
+    </div>
+    <div id="particles-js" class="interactive-bg column is-8">
+
+    </div>
+  </div>
+  
+</div>
+
+{% endblock content %}

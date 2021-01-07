@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+ {% load static %}
+
+{% block content %}
+<div class="container">
+<section class="section">
+    <div class="container">
+      <h1 class="title">Renta tu auto ahora mismo! </h1>
+    </div>
+</section>
+
+<form method="POST ">
+<div class="container is-centered">
+
+<div class="field is-horizontal">
+
+  <div class="field">
+    <p class="control has-icons-left">
+      <span class="select">
+        <select>
+          <option>Poza Rica</option>
+          <option>Tuxpan</option>
+        </select>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fas fa-globe"></i>
+      </span>
+    </p>
+  </div>
+
+    <div class="field-label is-normal">
+        <label class="label">Fecha</label>
+      </div>
+    <div class="field-body">
+        <div class="field">
+            <input class="input" type="date" placeholder="Name">
+        </div>
+      </div>
+      <div class="field-label is-normal">
+        <label class="label">Hora</label>
+      </div>
+    <div class="field-body">
+        <div class="field">
+            <input class="input" type="time" placeholder="Name">
+        </div>
+      </div>
+</div>
+<div class="field is-horizontal">
+
+    <div class="field-label is-normal">
+        <label class="label">Fecha</label>
+      </div>
+    <div class="field-body">
+        <div class="field">
+            <input class="input" type="date" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="field-label is-normal">
+        <label class="label">Hora</label>
+      </div>
+    <div class="field-body">
+        <div class="field">
+            <input class="input" type="time" placeholder="Name">
+        </div>
+      </div>  
+
+
+      <div class="field-label is-normal">
+        <label class="label"></label>
+      </div>
+      <br>
+      {% if user.is_authenticated %}
+                 
+      <div class="field is-grouped is-grouped-right">
+        <p class="control">
+          <a class="button is-primary " href="{% url 'car_app:active' %} ">
+            Buscar
+          </a>
+        </p>
+      </div>              
+      
+    {% else %}
+    <div class="field is-grouped is-grouped-right">
+      <p class="control">
+        <a class="button is-primary " href="">
+          Buscar
+        </a>
+      </p>
+    </div> 
+    {% endif %}
+
+
+
+
+    </div> 
+</div>
+</form>
+
+<br><br><br>
+<div class="tags mt-6 ">
+  <span class="tag is-warning is-light"><h1 class="title is-4 has-text-left has-text-weight-bold is-family-code" >Mejores calificados</h1></span>
+</div>
+
+<br>
+
+<div class="columns is-multiline">
+  
+  {% for lista in car %}
+    <div class="column">
+        <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+            <img src=" {{lista.nombres.imagen.url}}" alt="Placeholder image">
+             
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <span class="tag is-info">{{lista.nombres}}</span>
+                <span class="tag is-warning"><p class="has-text-justified">${{lista.nombres.precio}}</p></span>
+                
+          
+                <br><br>
+               
+              </div>
+              
+            </div>
+          
+            <form>
+              <p class="clasificacion">
+                <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                --><label for="radio1">★</label><!--
+                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                --><label for="radio2">★</label><!--
+                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                --><label for="radio3">★</label><!--
+                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                --><label for="radio4">★</label><!--
+                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                --><label for="radio5">★</label>
+              </p>
+            </form>
+            <a href="{% url 'car_app:description' lista.nombres.id %}"> <span class="tag is-link is-light">Ver mas...</span></a>
+          </div>
+         
+    </div>
+ {% endfor %}    
+  </div>
+  <span class="tag is-success is-light mb-6 mt-6" ><p class="title has-text-centered">Comentarios</p></span>
+
+  <div class="tile is-ancestor">
+    <div class="tile is-4 is-vertical is-parent">
+      <div class="tile is-child box ">
+        <p class="title">Omar Santiago</p>
+        <figure class="image is-128x128 is-pulled-right">
+          <img class="is-rounded " src="{% static 'img/caballero.png' %}">
+        </figure>
+        <p class="has-text-left">Muy buen servicio y respuesta casi al instante. Muy recomendado!</p>
+      </div>
+      <div class="tile is-child box">
+        <p class="title">Diana Diaz</p>
+        <figure class="image is-128x128 is-pulled-right">
+          <img class="is-rounded " src="{% static 'img/reina.png' %}">
+        </figure>
+        <p class="has-text-justified">Me encanta rentar autos aqui porque los mantienen frescos y muy limpios sin duda
+          la mejor pagina :)
+        </p>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <div class="tile is-child box">
+        <p class="title">Samuel Isai</p>
+        <figure class="image is-128x128 is-pulled-right">
+          <img class="is-rounded " src="{% static 'img/principe.png' %}">
+        </figure>
+        <p class="has-text-left">Amigos de Agency! saludos desde Colombia!
+
+          Bueno quiero que me ayuden a desmontar el mito de los precios de los alquileres de autos en Cancún!
+          
+          por encima les cuento, viajo en Mayo y voy a hospedarme en Cancún pero quiero conocer Tulum, PDC, Chichen, entre otros, por eso considero que la mejor opción por comodidad y flexibilidad es rentar un auto.
+          
+          Sin embargo para presupuestar el costo debo hacer la reserva con anticipación y he tenido la mala experiencia que cada agencia me da un precio muy distinto. si tu entras a expedia puedes alquiler un auto por 30 USD SEMANA (Dollar), si entras a despegar puedes alquilar por 60 USD 3 DIAS (America Car Rental), si entras a la página del aeropuerto te cotiza 230 USD LA SEMANA.
+          
+          Entonces cual es la realidad sobre el costo del alquiler? Donde puedo encontrar precios bajos pero reales y que incluyan todos los seguros obligatorios??
+          
+          Saludos! </p>
+      </div>
+    </div>
+  </div>
+  <nav class="level mb-6 mt-6">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Publicaciones</p>
+        <p class="title">3,456</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Siguiendo</p>
+        <p class="title">123</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Seguidores</p>
+        <p class="title">456K</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Likes</p>
+        <p class="title">789</p>
+      </div>
+    </div>
+  </nav>
+
+</div>
+{% endblock content %}

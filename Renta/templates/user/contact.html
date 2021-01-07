@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container is-fullhd">
+<section class="hero is-light">
+  <div class="hero-body">
+
+  </div>
+</section>
+</div>
+<div class="container is-max-desktop">  
+    <section class="hero ">
+        <div class="hero-body ">
+            <h1 class="title has-text-centered has-text-weight-bold  is-family-code has-text-info">  Contactanos</h1>
+          <div class="container">
+           
+          </div>
+        </div>
+      </section>
+
+      <article class="media">
+       <div class="media-right ">
+            <figure class="image is-128x128 ">
+                <img class="is-rounded" src="{% static 'img/ejes.png' %}">
+              </figure>
+          <div class="content">
+            <p>
+              <strong>Omar Santiago</strong> 
+              <small>omarsatiiago@gmail.com</small>
+            </p>
+           
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-reply"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon is-small"><i class="fas fa-heart"></i></span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </article>
+
+      <div class="field is-horizontal">   
+        <div class="field-label is-normal">
+          <label class="label">Para</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded has-icons-left">
+              <input class="input" type="text" placeholder="Nombre">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control is-expanded has-icons-left has-icons-right">
+              <input class="input is-success" type="email" placeholder="Email">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="field is-horizontal">
+        <div class="field-label"></div>
+        <div class="field-body">
+          <div class="field is-expanded">
+            <div class="field has-addons">
+              <p class="control">
+                <a class="button is-static">
+                  +52
+                </a>
+              </p>
+              <p class="control is-expanded">
+                <input class="input" type="tel" placeholder="Numero telefonico">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label"></label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" placeholder="Explica en que podemos ayudarte"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary">
+            Enviar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+</div>
+{% endblock content %}

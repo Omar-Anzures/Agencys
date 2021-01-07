@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/50254e9a4b.js" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/hero.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/start.css' %}">
+   
+   
+  
+    
+</head>
+<body>
+
+    <section class="hero is-info is-medium is-bold ">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                      <figure class="image is-64x64">
+                        <img src="{% static 'img/logo4.png' %}" alt="Logo" class="image" ">
+                      </figure>
+                      
+                        <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-end">
+                            <div class="tabs is-right">
+                                <ul>
+                                    <li class="is-active" ><a href="/">Inicio</a></li>
+                                    <li><a href="{% url 'car_app:car_all' %}">Autos</a></li>
+                                    <li><a href="{% url 'car_app:package' %}">Paquetes</a></li>
+                                    <li><a href="{% url 'users_app:we' %}">¿Quienes somos?</a></li>
+                                    <li><a href="{% url 'users_app:contact' %}">Contactanos</a></li>
+                                </ul>
+                              
+
+
+                                {% if user.is_authenticated %}
+                               
+                                <span class="navbar-item">
+                                  <a class="button is-white is-outlined" href="{% url 'users_app:logout' %}">
+                                      <span class="icon">
+                                        <i class="far fa-arrow-alt-circle-left"></i>
+                                      </span  >                                
+                                      <span title="Hello from the other side">Salir</span>
+                                  </a>    
+                                </span>
+
+                                <span class="navbar-item">
+                                  <a class="button is-white is-outlined is-rounded" href="{% url 'users_app:profile' %}">
+                                      <span class="icon">
+                                        <i class="fas fa-user-circle"></i>
+                                      </span  >                                
+                                      <span title="Hello from the other side">Perfil</span>
+                                  </a>    
+                                </span>
+                               
+                              {% else %}
+                               
+                              <span class="navbar-item">
+                                <a class="button is-white is-outlined" href="{% url 'users_app:login' %}">
+                                    <span class="icon icon is-medium mdi mdi-36px">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                    </span>
+                                    <span title="Hello from the other side">Inicia sesion</span>
+                                </a>
+                            </span>
+
+                              {% endif %}
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    {% block content %}{% endblock content %}
+
+
+    <footer class="footer has-background-white-ter mt-6">
+        <div class="content has-text-centered has-text-grey-dark ">
+          <div class="columns">
+            <div class="column">
+              <p class="has-text-weight-semibold mt-6 is-italic">"La forma en que conduzco, la forma en que manejo un auto,
+                 es una expresión de mis sentimientos internos."
+                </p>
+            </div>
+            <div class="column">
+              <p> </p>
+            </div>
+            <div class="column">
+              <p class="has-text-left has-text-weight-bold is-family-code">Envianos tu correo y con gusto te atenderemos!</p>
+              <div class="field is-grouped">
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-success" type="email" placeholder="Email">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </div>
+                <p class="control">
+                  <a class="button is-primary">
+                    Enviar
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+      <div class=" has-text-white bottom " style="background-color:  #005792;" >
+        <div class="container is-fluid">
+          <div class="columns">
+            <div class="column">
+              <p>Agency 2020</p>
+            </div>
+            <div class="column has-text-right">
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-youtube"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+<script type="text/javascript">
+particlesJS("particles-js", {"particles":{"number":{"value":60,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.25,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.3,"width":1},"move":{"enable":true,"speed":3,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+</script>
+</body>
+</html>

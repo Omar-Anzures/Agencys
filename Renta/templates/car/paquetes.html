@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+      <h1 class="title">Paquetes disponibles:</h1>
+    </div>
+</section>
+<br><br>
+
+<div class="container">
+    {% for paquete in pack %}
+    <article class="media mb-6">
+        <figure class="media-left">
+          <p class="image is-256x256">
+            <img src="{{paquete.imagen.url}}">
+          </p>
+        </figure>
+        <div class="media-content">
+         
+            <nav class="level is-mobile is-pulled-right">
+                <div class="level-left ">
+                  <a class="level-item">
+                    <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                  </a>
+                </div>
+              </nav>
+            <p class="title has-text-centered is-3 has-text-weight-medium">{{paquete.titulo}}</p>
+            <div class="tags">
+                <span class="tag"> <p>{{paquete.autos.nombres}}</p></span> 
+            </div>
+            <div class="tags">
+                <span class="tag"> <p>Precio:</p></span> 
+                <span class="tag"> <p>${{paquete.precio}}</p></span> 
+            </div>
+            <div class="tags">
+                <span class="tag">  <p>{{paquete.subtitulo}}</p></span> 
+            </div>
+            <div class="container is-pulled-right">
+                <button class="button is-warning">Obtener</button>
+            </div> 
+            <span class="tag is-danger is-light"><p>{{paquete.descripccion}}</p></span>
+        
+        </div>
+</article>
+      {% endfor %}
+
+</div>
+<br><br><br><br>
+  
+{% endblock content %}

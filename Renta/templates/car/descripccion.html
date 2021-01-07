@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content  %}
+
+<div class="container"> 
+   
+      <div class="tile is-ancestor mt-6">
+        <div class="tile is-vertical is-8">
+          <div class="tile">
+            <div class="tile is-parent is-vertical">
+            
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child box ">
+                <figure class="image is-4by3">
+                  <img src="{{des.nombres.imagen.url}}">
+                </figure>
+                <div class="tags mt-2">
+                    <span class="tag">Nombre: {{des.nombres}}</span>
+                    <span class="tag">Marca: {{des.nombres.marca}}</span>
+                    <span class="tag">Modelo:  {{des.nombres.modelo}}</span>
+                    <span class="tag">Estado: {{des.nombres.get_estado_display}}</span>
+                    <span class="tag">Precio: {{des.nombres.precio}}</span>
+                    <span class="tag">Color:  {{des.color}}</span>
+                    <span class="tag">Cilindros: {{des.cilindros}}</span>
+                    <span class="tag">Puertas: {{des.puertas}}</span>
+                    <span class="tag">Combustible:  {{des.combustible}}</span>
+                    <span class="tag">Caja de cambios: {{des.transmision}}</span>
+                    <div class="notification is-info is-light">
+                      <p class="has-text-justified">{{des.descripccion}}</p>
+                    </div>
+
+                  </div>
+               
+              </article>
+            </div>
+          </div>
+        </div>    
+      </div>   
+</div>
+
+  
+{% endblock content %}
