@@ -10,14 +10,14 @@ from django.views.generic.edit import( #vamos a ocupar el FormView de enves de C
     FormView
 )
 
-from django.views.generic import View,TemplateView
+from django.views.generic import View,TemplateView,DetailView,ListView
 
 
-from .models import User #Nombre del modelo que voy a utilizar
+from .models import User,Perfil #Nombre del modelo que voy a utilizar
 from .functions import code_generator
 
 
-from .forms import UserRegisterForm,LoginForm,UpdateForm,VerificationForm
+from .forms import UserRegisterForm,LoginForm,UpdateForm,VerificationForm,EditUserForm
 
 
 class UserRegisterView(FormView):
@@ -130,10 +130,16 @@ class WeView(TemplateView):
 ##########PANEL################################
 
 
-class ProfileView(LoginRequiredMixin,TemplateView):
+class ProfileView(LoginRequiredMixin,FormView):
     template_name = 'panel/profile.html'
-    login_url = 'users_app:login'
+    form_class = EditUserForm
+    success_url = '/'
 
+class ProfileAvatarView(LoginRequiredMixin,FormView):
+    template_name = 'panel/profile.html'
+    form_class = EditUserForm
+    success_url = '/'
+   
 
 class AutoPanelView(LoginRequiredMixin,TemplateView):
     template_name = 'panel/auto-panel.html'

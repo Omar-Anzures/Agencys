@@ -23,6 +23,7 @@ SECRET_KEY = get_secret('SECRET_KEY')
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,6 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'applications.car',
     'applications.users',
+    
+  
 ]
 
 MIDDLEWARE = [

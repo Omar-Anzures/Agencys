@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import authenticate
  
-from .models import User
+from .models import User,Perfil
 
 
 class UserRegisterForm(forms.ModelForm):
@@ -113,3 +113,31 @@ class VerificationForm(forms.Form):
 
         else:
             raise forms.ValidationError("El codigo que ingreso es incorrecto")
+
+
+    
+class EditUserForm(forms.ModelForm):
+
+  
+    edad = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control p-0 border-0'}))
+    ciudad = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control p-0 border-0','placeholder':'Ciudad'}))
+    direccion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control p-0 border-0','placeholder':'Direccion'}))
+    telefono = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control p-0 border-0'}))
+    cp= forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control p-0 border-0'}))
+    
+    class Meta:
+        model = Perfil
+        fields = (
+            'edad',
+            'ciudad',
+            'direccion',
+            'telefono',
+            'cp',
+                  
+            )
+
+
+class AvatarForm(forms.Form):
+    avatar = forms.ImageField()
+
+   
