@@ -5,10 +5,7 @@
 {% block dash %}
 
         <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Start Page Content -->
-            <!-- ============================================================== -->
-            <!-- Row -->
+           
             <div class="row">
                 <!-- Column -->
            
@@ -21,8 +18,9 @@
                                 <div class="user-content"><img src="" alt="">
                                     <a href="javascript:void(0)"><img src="{{per.avatar.url}}"
                                             class="thumb-lg img-circle" alt="img"></a>
-                                    <h4 class="text-white mt-2">{{user}}</h4>
-                                    <h5 class="text-white mt-2">{{email}}</h5>
+                                    <h4 class="text-white mt-2">{{per.user}}</h4>
+                                    <h5 class="text-white mt-2">{{per.user.email}}</h5>
+                                   
                                 </div>
                             </div>
                           
@@ -41,29 +39,55 @@
                 <!-- Column -->
                 <!-- Column -->
                 <div class="col-lg-8 col-xlg-9 col-md-12">
-                    <p class="font-weight-bold text-center"> Datos de domicilio</p>
+                    <p class="font-weight-bold text-center"> Datos del usario</p>
                  
                     <div class="card">
                         <div class="card-body">
-                            <form class="form-horizontal form-material">
+
+                            <div class="form-group mb-4">
+                                
+                                <label class="col-md-12 p-0 ">Nombres</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    {{per.user.nombres}} 
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Apellidos</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    {{per.user.apellidos}} 
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">Correo</label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    {{per.user.email}} 
+                                </div>
+                            </div>
+
+
+                          
                                 <div class="form-group mb-4">
                                     <label class="col-md-12 p-0">Edad</label>
                                     <div class="col-md-12 border-bottom p-0">
-                                        {{form.edad}}
+                                        {{per.edad}} años
+                                    </div>
                                 </div>
+
                                 
                                 <div class="form-group mb-4">
                                     <label class="col-md-12 p-0">Numero de telefono</label>
                                     <div class="col-md-12 border-bottom p-0">
                                      <!--  <input type="text" placeholder="123 456 7890"
                                         class="form-control p-0 border-0"> -->  
-                                        {{form.telefono}} 
+                                        {{per.telefono}} 
                                     </div>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label class="col-md-12 p-0">Ciudad</label>
                                     <div class="col-md-12 border-bottom p-0">
-                                        {{form.ciudad}}
+                                        {{per.ciudad}}
                                     </div>
                                 </div>
                                 <div class="form-group mb-4">
@@ -71,7 +95,7 @@
                                     <div class="col-md-12 border-bottom p-0">
                                       <!-- <input type="text" placeholder="Calle 8 de Mayo Col.Retiro"
                                             class="form-control p-0 border-0">  -->  
-                                            {{form.direccion}}
+                                            {{per.direccion}}
                                     </div>
                                 </div>
 
@@ -80,7 +104,7 @@
                                     <div class="col-md-12 border-bottom p-0">
                                       <!-- <input type="text" placeholder="Calle 8 de Mayo Col.Retiro"
                                             class="form-control p-0 border-0">  -->  
-                                            {{form.cp}}
+                                            {{per.cp}}
                                     </div>
                                 </div>
                                
@@ -96,12 +120,14 @@
                                 
                                
                              
-                            </form>
+                            
                         </div>
                     </div>
                 </div>
                 <!-- Column -->
             </div>
-
+     
+        </div>
+  
 {% endblock dash %}
    

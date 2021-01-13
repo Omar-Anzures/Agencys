@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.urls import reverse_lazy,reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -10,14 +10,14 @@ from django.views.generic.edit import( #vamos a ocupar el FormView de enves de C
     FormView
 )
 
-from django.views.generic import View,TemplateView,DetailView,ListView
+from django.views.generic import View,TemplateView,DetailView,ListView,UpdateView
 
 
 from .models import User,Perfil #Nombre del modelo que voy a utilizar
 from .functions import code_generator
 
 
-from .forms import UserRegisterForm,LoginForm,UpdateForm,VerificationForm,EditUserForm
+from .forms import UserRegisterForm,LoginForm,UpdateForm,VerificationForm
 
 
 class UserRegisterView(FormView):
@@ -130,17 +130,17 @@ class WeView(TemplateView):
 ##########PANEL################################
 
 
-class ProfileView(LoginRequiredMixin,FormView):
+class ProfileView(LoginRequiredMixin,ListView):
     template_name = 'panel/profile.html'
-    form_class = EditUserForm
-    success_url = '/'
+    model = Perfil
+    context_object_name = 'per'
 
-class ProfileAvatarView(LoginRequiredMixin,FormView):
-    template_name = 'panel/profile.html'
-    form_class = EditUserForm
-    success_url = '/'
-   
+    def get_queryset(self, *args, **kwargs):
+        user = self.request.user
+        data = Perfil.objects.get(user = user.id)
+        return data
 
+    
 class AutoPanelView(LoginRequiredMixin,TemplateView):
     template_name = 'panel/auto-panel.html'
     login_url = 'users_app:login'
