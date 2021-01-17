@@ -5,7 +5,6 @@
 {% block dash %}
   
 <div class="container-fluid">
-
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-sm-8 col-xs-12">
                         <div class="card mb-3" style="max-width: 540px;">
@@ -50,54 +49,27 @@
                         <div class="white-box">
                             <h3 class="box-title mb-0">Autos economicos</h3>
                             <div class="comment-center">
+                                {% for car in carro %}
                                 <div class="comment-body d-flex">
-                                    <div class="user-img"> <img src="plugins/images/users/pawandeep.jpg" alt="user"
+                                    <div class="user-img"> <img src="{{car.nombres.imagen.url}}" alt="user"
                                             class="img-circle">
                                     </div>
                                     <div class="mail-contnet">
-                                        <h5>Pavan kumar</h5><span class="time">10:20 AM 20 may 2016</span>
+                                        <h5>{{car.nombres}}</h5><span class="time">Precio desde : {{car.nombres.precio}}</span>
                                         <br>
                                         <div class="mb-3 mt-3">
-                                            <span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque
-                                                pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui
-                                                pellentesque molestie feugiat. Aenean commodo dui </span>
+                                            <span class="mail-desc">{{car.descripccion}} </span>
                                         </div>
-                                        <a href="javacript:void(0)"
+                                        <a href="{% url 'car_app:auto-renta'%}"
                                             class="btn btn btn-rounded btn-default btn-outline mb-2 mb-md-0 m-r-5"><i
-                                                class="ti-check text-success m-r-5"></i>Approve</a><a
-                                            href="javacript:void(0)" class="btn-rounded btn btn-default btn-outline"><i
+                                                class="ti-check text-success m-r-5"></i>Rentar</a><a
+                                            href="{% url 'car_app:auto-detail' car.nombres.id %}" class="btn-rounded btn btn-default btn-outline"><i
                                                 class="ti-close text-danger m-r-5"></i>
-                                            Reject</a>
+                                            Ver mas..</a>
                                     </div>
                                 </div>
-                                <div class="comment-body d-flex">
-                                    <div class="user-img"> <img src="plugins/images/users/sonu.jpg" alt="user"
-                                            class="img-circle">
-                                    </div>
-                                    <div class="mail-contnet">
-                                        <h5>Sonu Nigam</h5><span class="time">10:20 AM 20 may 2016</span>
-                                        <br>
-                                        <div class="mb-3 mt-3">
-                                            <span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque
-                                                pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui
-                                                pellentesque molestie feugiat. Aenean commodo dui </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment-body d-flex border-0">
-                                    <div class="user-img"> <img src="plugins/images/users/arijit.jpg" alt="user"
-                                            class="img-circle">
-                                    </div>
-                                    <div class="mail-contnet">
-                                        <h5>Arijit singh</h5><span class="time">10:20 AM 20 may 2016</span>
-                                        <br>
-                                        <div class="mb-3 mt-3">
-                                            <span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque
-                                                pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui
-                                                pellentesque molestie feugiat. Aenean commodo dui </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
+                                
                             </div>
                         </div>
                     </div>
@@ -110,121 +82,59 @@
                                 <ul class="chatonline">
                                     <li>
                                         <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </button>
                                             <button class="btn btn-info btn-circle btn" type="button">
                                                 <i class="fas fa-plus-circle"></i>
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                                src=" {% static 'img/nissan.png' %} " alt="user-img" class="img-circle">
                                             <div class="ml-2">
-                                                <span class="text-dark text-muted">Varun Dhavan <small
-                                                        class="d-block text-success d-block">online</small></span>
+                                                <span class="text-dark text-muted">Nissan</span>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
                                         <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </button>
+                                            
                                             <button class="btn btn-info btn-circle btn" type="button">
                                                 <i class="fas fa-plus-circle"></i>
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/genu.jpg" alt="user-img" class="img-circle">
+                                                src="{% static 'img/honda.png' %} " alt="user-img" class="img-circle">
                                             <div class="ml-2">
-                                                <span class="text-dark text-muted">Genelia
-                                                    Deshmukh <small class="d-block text-warning">Away</small></span>
+                                                <span class="text-dark text-muted">Honda
+                                                   
                                             </div>
                                         </a>
                                     </li>
                                     <li>
                                         <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </button>
+                                           
                                             <button class="btn btn-info btn-circle btn" type="button">
                                                 <i class="fas fa-plus-circle"></i>
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle">
+                                                src="{% static 'img/toyota.png' %} " alt="user-img" class="img-circle">
                                             <div class="ml-2">
-                                                <span class="text-dark text-muted">Ritesh
-                                                    Deshmukh <small class="d-block text-danger">Busy</small></span>
+                                                <span class="text-dark text-muted">Toyota
+                                                
                                             </div>
                                         </a>
                                     </li>
                                     <li>
                                         <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </button>
+                                            
                                             <button class="btn btn-info btn-circle btn" type="button">
                                                 <i class="fas fa-plus-circle"></i>
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/arijit.jpg" alt="user-img" class="img-circle">
+                                                src="{% static 'img/ford.png' %}" alt="user-img" class="img-circle">
                                             <div class="ml-2">
-                                                <span class="text-dark text-muted">Arijit
-                                                    Sinh <small class="d-block text-muted">Offline</small></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </button>
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="fas fa-plus-circle"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/govinda.jpg" alt="user-img"
-                                                class="img-circle">
-                                            <div class="ml-2">
-                                                <span class="text-dark text-muted">Govinda
-                                                    Star <small class="d-block text-success">online</small></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </button>
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="fas fa-plus-circle"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/hritik.jpg" alt="user-img" class="img-circle">
-                                            <div class="ml-2">
-                                                <span class="text-dark text-muted">John
-                                                    Abraham<small class="d-block text-success">online</small></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </button>
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="fas fa-plus-circle"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
-                                            <div class="ml-2">
-                                                <span class="text-dark text-muted">Varun
-                                                    Dhavan <small class="d-block text-success">online</small></span>
+                                                <span class="text-dark text-muted">Ford
+                                                   
                                             </div>
                                         </a>
                                     </li>

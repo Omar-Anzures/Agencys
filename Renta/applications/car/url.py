@@ -5,7 +5,10 @@ from .views import (ListCarView,
                    CarAllView,
                    PackageView,
                    DescriptionView,
-                   ActiveView
+                   ActiveView,
+                   AutoPanelView,
+                   AutoRenta,
+                   AutoDetail
                    )
 
 app_name = "car_app"
@@ -16,6 +19,10 @@ urlpatterns = [
     path('paquetes',PackageView.as_view(),name = 'package'),
     path('descripccion/<pk>/',DescriptionView.as_view(),name = 'description'),
     path('active/',ActiveView.as_view(),name = 'active'),
+    path('auto-panel/',AutoPanelView.as_view(),name = 'auto-panel'),
+    path('auto-detalle/<pk>/',AutoDetail.as_view(),name = 'auto-detail'),
+    path('auto-renta/',AutoRenta.as_view(),name = 'auto-renta'),
+  
   
   
 ]

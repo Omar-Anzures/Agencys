@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -115,21 +116,21 @@
                         <!-- User Profile-->
                       
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href=""
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'users_app:profile' %}"
                                 aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span class="hide-menu">Perfil</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'users_app:auto-panel' %}"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'car_app:auto-panel' %}"
                                 aria-expanded="false">
                                 <i class="fas fa-car"></i>
                                 <span class="hide-menu">Autos disponibles</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'users_app:paquete' %}"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href=""
                                 aria-expanded="false">
                                 <i class="fas fa-umbrella-beach"></i>
                                 <span class="hide-menu">Paquetes</span>
@@ -179,7 +180,7 @@
  
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center"> 2020 © Todos los derechos reservados <a
+            <footer class="footer text-center"> 2021 © Todos los derechos reservados <a
                     href="https://www.wrappixel.com/"> Agency.com</a>
             </footer>
            

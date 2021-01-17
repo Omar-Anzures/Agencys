@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render
 from django.urls import reverse_lazy,reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -127,24 +127,20 @@ class WeView(TemplateView):
     template_name = 'user/nosotros.html'
 
 
-##########PANEL################################
+##########PANEL#################################
 
 
 class ProfileView(LoginRequiredMixin,ListView):
     template_name = 'panel/profile.html'
     model = Perfil
     context_object_name = 'per'
+    login_url = 'users_app:login'
+    
 
     def get_queryset(self, *args, **kwargs):
         user = self.request.user
         data = Perfil.objects.get(user = user.id)
         return data
-
-    
-class AutoPanelView(LoginRequiredMixin,TemplateView):
-    template_name = 'panel/auto-panel.html'
-    login_url = 'users_app:login'
-         
 
 
 class PaquetePanelView(LoginRequiredMixin,TemplateView):

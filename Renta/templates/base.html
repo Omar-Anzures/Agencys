@@ -26,7 +26,7 @@
                 <div class="container">
                     <div class="navbar-brand">
                       <figure class="image is-64x64">
-                        <img src="{% static 'img/logo5.png' %}" alt="Logo" class="image" ">
+                       <a href="{% url 'car_app:List_car' %}"><img src="{% static 'img/logo5.png' %}" alt="Logo" class="image" "></a> 
                       </figure>
                       
                         <span class="navbar-burger burger" data-target="navbarMenu">
@@ -39,7 +39,7 @@
                         <div class="navbar-end">
                             <div class="tabs is-right">
                                 <ul>
-                                    <li class="is-active" ><a href="/">Inicio</a></li>
+                                    
                                     <li><a href="{% url 'car_app:car_all' %}">Autos</a></li>
                                     <li><a href="{% url 'car_app:package' %}">Paquetes</a></li>
                                     <li><a href="{% url 'users_app:we' %}">¿Quienes somos?</a></li>
@@ -132,7 +132,7 @@
         <div class="container is-fluid">
           <div class="columns">
             <div class="column">
-              <p>Agency 2020</p>
+              <p>Agency 2021</p>
             </div>
             <div class="column has-text-right">
               <i class="fab fa-facebook"></i>

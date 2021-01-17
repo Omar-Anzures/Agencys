@@ -1,6 +1,13 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy,reverse
+from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import CarCaratModel,PackageModel
+from django.views.generic import ListView,TemplateView
+
+from .models import CarCaratModel,PackageModel,CarModel
+
+
 
 from django.views.generic import (
     TemplateView,
@@ -58,4 +65,28 @@ class ActiveView(ListView):
         return lista
     
    
+#Panel car
 
+class AutoPanelView(LoginRequiredMixin,ListView):
+    template_name = 'panel/auto-panel.html'
+    login_url = 'users_app:login'
+    model = CarCaratModel
+    context_object_name = "carro"
+   
+
+    def get_queryset(self):
+        barato = CarCaratModel.objects.filter(
+            nombres__precio__lt = 8000
+        )
+        return barato
+    
+  
+class AutoDetail(LoginRequiredMixin,DetailView):
+    template_name =  'panel/auto-op.html'
+    model = CarCaratModel
+    context_object_name = 'op'
+
+
+
+class AutoRenta(LoginRequiredMixin,TemplateView):
+    template_name =  'panel/renta-auto.html'
