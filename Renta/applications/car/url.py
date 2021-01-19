@@ -8,7 +8,8 @@ from .views import (ListCarView,
                    ActiveView,
                    AutoPanelView,
                    AutoRenta,
-                   AutoDetail
+                   AutoDetail,
+                   PaquetePanelView,
                    )
 
 app_name = "car_app"
@@ -22,6 +23,7 @@ urlpatterns = [
     path('auto-panel/',AutoPanelView.as_view(),name = 'auto-panel'),
     path('auto-detalle/<pk>/',AutoDetail.as_view(),name = 'auto-detail'),
     path('auto-renta/',AutoRenta.as_view(),name = 'auto-renta'),
+    path('paquete-panel/',PaquetePanelView.as_view(),name = 'paquete-auto'),
   
   
   

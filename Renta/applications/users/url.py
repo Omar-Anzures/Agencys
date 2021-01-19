@@ -12,7 +12,6 @@ urlpatterns = [
    path('contactanos/',views.COntactView.as_view(),name = 'contact'),
    path('nosotros',views.WeView.as_view(),name = 'we'),
    path('perfil/',views.ProfileView.as_view(),name = 'profile'),
-   path('paquete-panel/',views.PaquetePanelView.as_view(),name = 'paquete'),
    path('update-password/',views.UpdatePasswordView.as_view(),name = 'update-p'),
    path('verificacion/<pk>/',views.VerificationView.as_view(),name = 'verification'),
    

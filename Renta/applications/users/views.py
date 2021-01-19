@@ -142,8 +142,3 @@ class ProfileView(LoginRequiredMixin,ListView):
         data = Perfil.objects.get(user = user.id)
         return data
 
-
-class PaquetePanelView(LoginRequiredMixin,TemplateView):
-    template_name = 'panel/paquete-panel.html'
-    login_url = 'users_app:login'
-    

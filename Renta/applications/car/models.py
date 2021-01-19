@@ -17,6 +17,7 @@ class CarModel(models.Model):
     tamano = models.CharField(max_length=1, choices=SEGMENTOS_CHOICES, blank=True)
     precio = models.IntegerField()
     imagen = models.ImageField(upload_to='autos',blank=True,null=True)
+    ratings = models.PositiveIntegerField(default = 0)
 
 
     def __str__(self):

@@ -7,8 +7,6 @@ from django.views.generic import ListView,TemplateView
 
 from .models import CarCaratModel,PackageModel,CarModel
 
-
-
 from django.views.generic import (
     TemplateView,
     ListView,
@@ -37,6 +35,7 @@ class CarAllView(ListView):
             nombres__marca__icontains=palabra
             )
         return lista 
+
     
 class PackageView(ListView):
     template_name = 'car/paquetes.html'
@@ -85,8 +84,16 @@ class AutoDetail(LoginRequiredMixin,DetailView):
     template_name =  'panel/auto-op.html'
     model = CarCaratModel
     context_object_name = 'op'
+    login_url = 'users_app:login'
 
 
 
 class AutoRenta(LoginRequiredMixin,TemplateView):
     template_name =  'panel/renta-auto.html'
+    login_url = 'users_app:login'
+
+
+class PaquetePanelView(LoginRequiredMixin,TemplateView):
+    template_name = 'panel/paquete-panel.html'
+    login_url = 'users_app:login'
+    
