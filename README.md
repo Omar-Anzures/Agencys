@@ -1,2 +1,2 @@
 # Agencys
-App web de renta de autos, aplicada con machine leaning
+Aplicacion web de un sistema de renta de autos
