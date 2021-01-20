@@ -78,6 +78,59 @@ class AutoPanelView(LoginRequiredMixin,ListView):
             nombres__precio__lt = 8000
         )
         return barato
+
+class Auto1PanelView(LoginRequiredMixin,ListView):
+    template_name = 'car/auto1.html'
+    login_url = 'users_app:login'
+    model = CarCaratModel
+    context_object_name = 'c1'
+   
+    def get_queryset(self):
+        marca = CarCaratModel.objects.filter(
+            nombres__marca = 'Nissan'
+        )
+        return marca
+
+
+class Auto2PanelView(LoginRequiredMixin,ListView):
+    template_name = 'car/auto2.html'
+    login_url = 'users_app:login'
+    model = CarCaratModel
+    context_object_name = 'c2'
+   
+    def get_queryset(self):
+        marca = CarCaratModel.objects.filter(
+            nombres__marca = 'Honda'
+        )
+        return marca
+
+
+class Auto3PanelView(LoginRequiredMixin,ListView):
+    template_name = 'car/auto3.html'
+    login_url = 'users_app:login'
+    model = CarCaratModel
+    context_object_name = 'c3'
+   
+    def get_queryset(self):
+        marca = CarCaratModel.objects.filter(
+            nombres__marca = 'Toyota'
+        )
+        return marca
+
+
+class Auto4PanelView(LoginRequiredMixin,ListView):
+    template_name = 'car/auto4.html'
+    login_url = 'users_app:login'
+    model = CarCaratModel
+    context_object_name = 'c4'
+   
+    def get_queryset(self):
+        marca = CarCaratModel.objects.filter(
+            nombres__marca = 'Ford'
+        )
+        return marca
+
+
     
   
 class AutoDetail(LoginRequiredMixin,DetailView):
@@ -88,9 +141,9 @@ class AutoDetail(LoginRequiredMixin,DetailView):
 
 
 
-class AutoRenta(LoginRequiredMixin,TemplateView):
-    template_name =  'panel/renta-auto.html'
-    login_url = 'users_app:login'
+#class AutoRenta(LoginRequiredMixin,TemplateView):
+ #   template_name =  'panel/renta-auto.html'
+  #  login_url = 'users_app:login'
 
 
 class PaquetePanelView(LoginRequiredMixin,TemplateView):

@@ -10,5 +10,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('', include('applications.users.url')),
     re_path('', include('applications.car.url')),
+    re_path('', include('applications.rentas.url')),
 
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT) 

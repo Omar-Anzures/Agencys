@@ -18,6 +18,7 @@ class CarModel(models.Model):
     precio = models.IntegerField()
     imagen = models.ImageField(upload_to='autos',blank=True,null=True)
     ratings = models.PositiveIntegerField(default = 0)
+    
 
 
     def __str__(self):
@@ -25,6 +26,7 @@ class CarModel(models.Model):
 
     class Meta:
         verbose_name_plural = 'Automovil'
+
 
 
 class CarCaratModel(models.Model):

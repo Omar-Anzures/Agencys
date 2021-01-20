@@ -1,0 +1,57 @@
+
+
+
+{% extends 'panel/dash_base.html' %}
+{% load static %}
+
+
+{% block dash %}
+
+<!--  
+<div class="container">
+    <img src="{% static 'img/i.jpg' %}" class="img-fluid rounded" style="width: 500em;" height="10"; />
+</div>
+ -->
+ <br><br>
+ <h1 class="display-4  text-center">MARCA HONDA</h1>
+{% for car in c2 %}
+
+<div class="container py-5">
+  
+   
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <!-- List group-->
+            <ul class="list-group shadow">
+                <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-1">
+                            <h5 class="mt-0 font-weight-bold mb-2">{{car.nombres}}</h5>
+                            <p class="font-italic text-muted mb-0 small">{{car.nombres.modelo}}</p>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <h6 class="font-weight-bold my-2">A solo: ${{car.nombres.precio}} pesos</h6>
+                                <ul class="list-inline small">
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                </ul>
+                            </div>
+                        </div><img src="{{car.nombres.imagen.url}}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    </div> 
+                    <a class="btn btn-primary" href="#" role="button">Renta</a>
+                    <a class="btn btn-primary" href="{% url 'car_app:auto-detail' car.nombres.id %}" role="button">Ver mas..</a>
+                </li> <!-- End -->
+            
+            </ul> <!-- End -->
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+  
+{% endblock dash %}

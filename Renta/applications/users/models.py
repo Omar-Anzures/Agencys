@@ -4,6 +4,8 @@ from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin
 
 from django.db.models.signals import post_save
 
+from applications.car.models import CarCaratModel
+
 from .managers import UserManager
 
 class User(AbstractBaseUser,PermissionsMixin):
