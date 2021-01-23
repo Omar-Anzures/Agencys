@@ -13,10 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     
-   
-   
   
-    
 </head>
 <body>
 
@@ -39,7 +36,7 @@
                         <div class="navbar-end">
                             <div class="tabs is-right">
                                 <ul>
-                                    
+                                    <li><a href="{% url 'car_app:List_car' %}">Inicio</a> </li> 
                                     <li><a href="{% url 'car_app:car_all' %}">Autos</a></li>
                                     <li><a href="{% url 'car_app:package' %}">Paquetes</a></li>
                                     <li><a href="{% url 'users_app:we' %}">¿Quienes somos?</a></li>

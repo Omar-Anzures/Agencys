@@ -39,7 +39,7 @@ class UserRegisterView(FormView):
         asunto='Bienvenido a nuestra comunidad Agencys!'
         mensaje = 'Codigo de verificacion: ' + codigo
         email_remitente = 'omarsatiiago@gmail.com'
-
+        
         send_mail(asunto,mensaje,email_remitente,[form.cleaned_data['email'],])
         
         return HttpResponseRedirect(
@@ -136,7 +136,6 @@ class ProfileView(LoginRequiredMixin,ListView):
     context_object_name = 'per'
     login_url = 'users_app:login'
     
-
     def get_queryset(self, *args, **kwargs):
         user = self.request.user
         data = Perfil.objects.get(user = user.id)

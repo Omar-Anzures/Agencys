@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render
 from django.urls import reverse_lazy,reverse
 from django.http import HttpResponseRedirect
@@ -6,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView,TemplateView
 
 from .models import CarCaratModel,PackageModel,CarModel
+from applications.rentas.models import RentaMode
 
 from django.views.generic import (
     TemplateView,
@@ -19,8 +21,8 @@ class ListCarView(ListView):
     template_name = 'index.html'
     model = CarCaratModel
     context_object_name = "car"
-    ordering = 'nombres'
-    paginate_by = 4
+    ordering = 'color'
+    paginate_by = 5
 
 
 class CarAllView(ListView):
@@ -76,8 +78,13 @@ class AutoPanelView(LoginRequiredMixin,ListView):
     def get_queryset(self):
         barato = CarCaratModel.objects.filter(
             nombres__precio__lt = 8000
+           
+
         )
+       
+        
         return barato
+
 
 class Auto1PanelView(LoginRequiredMixin,ListView):
     template_name = 'car/auto1.html'

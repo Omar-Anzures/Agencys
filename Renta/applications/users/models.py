@@ -4,8 +4,6 @@ from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin
 
 from django.db.models.signals import post_save
 
-from applications.car.models import CarCaratModel
-
 from .managers import UserManager
 
 class User(AbstractBaseUser,PermissionsMixin):
@@ -29,6 +27,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
     def get_full_name(self):
         return self.nombres + ' ' + self.apellidos
+
 
 class Perfil(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='perfil')

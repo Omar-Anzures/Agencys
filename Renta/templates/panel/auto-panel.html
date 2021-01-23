@@ -60,7 +60,7 @@
                                         <div class="mb-3 mt-3">
                                             <span class="mail-desc">{{car.descripccion}} </span>
                                         </div>
-                                        <a href="{% url 'car_app:auto-renta'%}"
+                                        <a href="{% url 'rentas_app:rentar' car.nombres.id %}"
                                             class="btn btn btn-rounded btn-default btn-outline mb-2 mb-md-0 m-r-5"><i
                                                 class="ti-check text-success m-r-5"></i>Rentar</a><a
                                             href="{% url 'car_app:auto-detail' car.nombres.id %}" class="btn-rounded btn btn-default btn-outline"><i
@@ -68,8 +68,8 @@
                                             Ver mas..</a>
                                     </div>
                                 </div>
-                                {% endfor %}
                                 
+                                 {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -149,15 +149,18 @@
                     
                 </div>
 
-
+                <h3 class="box-title mb-0">Te recomendamos por color azul...</h3> <br><br>
                 <div class="row pb-5 mb-4">
-
+                   
+                    {% for car in carro %}
+         
+                             
                     <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                         <!-- Card-->
                         <div class="card rounded shadow-sm border-0">
-                            <div class="card-body p-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485076/shoes-1_gthops.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
-                                <h5> <a href="#" class="text-dark">Awesome product</a></h5>
-                                <p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <div class="card-body p-4"><img src="{{car.nombres.imagen.url}}" alt="" class="img-fluid d-block mx-auto mb-3">
+                                <h5> <a href="#" class="text-dark">{{car.nombres}}</a></h5>
+                                <p class="small text-muted font-italic">Renta a solo: ${{car.nombres.precio}} pesos</p>
                                 <ul class="list-inline small">
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
@@ -165,64 +168,19 @@
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                     <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
                                 </ul>
+                                <a class="btn btn-primary" href="{% url 'rentas_app:rentar' car.nombres.id %}" role="button">Rentar</a>
+                                <a class="btn btn-primary" href="{% url 'car_app:auto-detail' car.nombres.id %}" role="button">Ver mas..</a>
                             </div>
+                           
                         </div>
+                      
+                 
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                        <!-- Card-->
-                        <div class="card rounded shadow-sm border-0">
-                            <div class="card-body p-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485076/shoes-1_gthops.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
-                                <h5> <a href="#" class="text-dark">Awesome product</a></h5>
-                                <p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <ul class="list-inline small">
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                        <!-- Card-->
-                        <div class="card rounded shadow-sm border-0">
-                            <div class="card-body p-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485076/shoes-1_gthops.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
-                                <h5> <a href="#" class="text-dark">Awesome product</a></h5>
-                                <p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <ul class="list-inline small">
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                        <!-- Card-->
-                        <div class="card rounded shadow-sm border-0">
-                            <div class="card-body p-4"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485076/shoes-1_gthops.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
-                                <h5> <a href="#" class="text-dark">Awesome product</a></h5>
-                                <p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <ul class="list-inline small">
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
+                   
+                    {% endfor %}
 
 
                 </div>
-
 
 
 

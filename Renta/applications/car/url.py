@@ -14,6 +14,7 @@ from .views import (ListCarView,
                    Auto2PanelView,
                    Auto3PanelView,
                    Auto4PanelView,
+                  
                    )
 
 app_name = "car_app"
@@ -25,6 +26,7 @@ urlpatterns = [
     path('descripccion/<pk>/',DescriptionView.as_view(),name = 'description'),
     path('active/',ActiveView.as_view(),name = 'active'),
     path('auto-panel/',AutoPanelView.as_view(),name = 'auto-panel'),
+   
     path('auto-nissan/',Auto1PanelView.as_view(),name = 'auto-ni'),
     path('auto-honda/',Auto2PanelView.as_view(),name = 'auto-ho'),
     path('auto-toyota/',Auto3PanelView.as_view(),name = 'auto-to'),

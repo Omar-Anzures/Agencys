@@ -101,8 +101,10 @@
 <br>
 
 <div class="columns is-multiline">
+
   
   {% for lista in car %}
+  {% if lista.nombres.ratings  == 5   %}
     <div class="column">
         <div class="card">
             <div class="card-image">
@@ -117,17 +119,45 @@
                 <span class="tag is-warning"><p class="has-text-justified">${{lista.nombres.precio}}</p></span>
                 
           
-                <br><br>
+                <br><br> 
+
+                <nav class="level is-mobile is-pulled-left">
+                  <div class="level-left ">
+                    <a class="level-item">
+                      <span class="icon is-small"><i class="fas fa-star"></i></span>
+                    </a>
+                    <a class="level-item">
+                      <span class="icon is-small"><i class="fas fa-star"></i></span>
+                    </a>
+                    <a class="level-item">
+                      <span class="icon is-small"><i class="fas fa-star"></i></span>
+                    </a>
+                    <a class="level-item">
+                      <span class="icon is-small"><i class="fas fa-star"></i></span>
+                    </a>
+                    <a class="level-item">
+                      <span class="icon is-small"><i class="fas fa-star"></i></span>
+                    </a>
+                  </div>
+                </nav>
+                  
                
+              
             
-              </div>     
+              </div>  
+              <br>
+              <a href="{% url 'car_app:description' lista.nombres.id %}"> <span class="tag is-link is-light">Ver mas...</span></a>
             </div>
 
-            <a href="{% url 'car_app:description' lista.nombres.id %}"> <span class="tag is-link is-light">Ver mas...</span></a>
+           
           </div>
+
          
     </div>
+    {% endif %}
  {% endfor %}    
+ 
+               
   </div>
   <span class="tag is-success is-light mb-6 mt-6" ><p class="title has-text-centered">Comentarios</p></span>
 

@@ -1,5 +1,8 @@
 from django.db import models
 
+from applications.users.models import Perfil
+
+
 class CarModel(models.Model):
     ESTADO_CHOICES=(
         ('D','Disponible'),
@@ -18,8 +21,8 @@ class CarModel(models.Model):
     precio = models.IntegerField()
     imagen = models.ImageField(upload_to='autos',blank=True,null=True)
     ratings = models.PositiveIntegerField(default = 0)
-    
-
+    perfil = models.OneToOneField(Perfil,on_delete=models.CASCADE,blank=True,null=True)
+  
 
     def __str__(self):
         return self.nombres
@@ -35,12 +38,17 @@ class CarCaratModel(models.Model):
         on_delete=models.CASCADE,   
         primary_key=True,
         )
+
+    
     color = models.CharField(max_length=50)
     cilindros = models.IntegerField()
     puertas =  models.IntegerField()
     combustible = models.CharField(max_length=50,default=None)
     descripccion = models.CharField(max_length=250)
     transmision = models.CharField(max_length=50)
+
+    
+
 
     def __str__(self):
         return self.color

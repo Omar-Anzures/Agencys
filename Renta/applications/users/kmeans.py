@@ -4,26 +4,7 @@ import math
 from numpy import linalg as la
 import numpy
 class Kmeans():
-    """
-    Una clase que representa el algoritmo de k-means y todos sus elementos.
-    ...
-    atributos
-    ---------
-    apps : list
-        lista con todas las aplicaciones disponibles y sus datos, cada columna representa
-        una app con los siguientes elementos en el mismo orden:
-        [nombre, categoria, rating, instalaciones, tamaño, color]
-    centroides: list of list
-        lista que contiene los centroides (means) del algoritmo.
-    num_colores : Int
-        numero entero que representa el numero de colores en el algoritmo, es decir K
-    colores: list of int
-        lista con los colores que se le dan a los centroides y a los puntos en el plano,
-        los colores son representados con enteros que van a de 0 a k.
-    n_apps: int
-        numero de aplicaciones que hay en la base de datos
-    """
-
+    
     apps = []
     n_apps = 0
     centroides = []
@@ -70,9 +51,7 @@ class Kmeans():
 
                 
     def nuevos_centroides(self, k):
-        """  
-        crea nuevos centroides con valores aleatorios dentro del espacio euclidiano de R4 
-        """
+       
         for i in range(k):
             categoria = random.randrange(33)
             rating = random.randrange(5)
@@ -91,10 +70,7 @@ class Kmeans():
         return round((numpy.linalg.norm(vector1-vector2)).item(), 2)
 
     def colorea_puntos(self):
-        """
-        colorea los puntos del espacio segun cual es el centroide más cercano, conceptualmente se 
-        puede ver como la generacion de los clusters
-        """
+       
         for app in self.apps:
             dicc = {} #diccionario para poder devolver el resultado final
             i = 0
@@ -106,17 +82,7 @@ class Kmeans():
             app[5] = dicc.get(minimo)
     
     def reajusta_centroides(self):
-        """
-        reajusta los centroides en el punto medio de todos los puntos del mismo color
-        atributos
-        ---------
-        medias: list of list
-            Una lista de listas, en donde cada lista interna guarda los valores de uno los atributos para 
-            cada una de las apps que tienen el mismo color.
-        resultados : list of float
-            Lista que guarda el promedio (media aritmetica) de cada atributo que los apps que tienen el
-            mismo color, esta lista se vuelve el nuevo centroide de ese color
-        """
+      
         medias = [[0],[0],[0],[0]]
         resultados = []
         for color in self.colores:

@@ -43,7 +43,7 @@
                         </div><img src="{{car.nombres.imagen.url}}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
                    
                     </div> 
-                    <a class="btn btn-primary" href="#" role="button">Renta</a>
+                    <a class="btn btn-primary" href="{% url 'rentas_app:rentar' car.nombres.id %}" role="button">Renta</a>
                     <a class="btn btn-primary" href="{% url 'car_app:auto-detail' car.nombres.id %}" role="button">Ver mas..</a>
                 </li> <!-- End -->
             
